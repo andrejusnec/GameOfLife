@@ -2,7 +2,7 @@ package gameoflife;
 
 public class GameOfLife {
 
-    final static int K = 10;
+    final static int K = 10; // kad lengviau kaitalioti butu
 
     public static void main(String[] args) {
         char[][] field = new char[K][K];
@@ -34,7 +34,7 @@ public class GameOfLife {
         }
         for (int abc = 0; abc < 50; abc++) {
             /**
-             * *****Uzpildau trimati masiva*****
+             * *****Filling 3d array*****
              */
             for (int i = 0; i < field.length; i++) {
                 for (int j = 0; j < field.length; j++) {
@@ -107,7 +107,7 @@ public class GameOfLife {
                 }
             }
             /**
-             * *********Perasau massiva is paskutinio i pries pirma*******
+             * *********PErasau array kad naujas generuotusi pagal praeita*******
              */
             System.out.println("*************" + (abc + 1) + "***************");
             for (int i = 0; i < field2.length; i++) {
@@ -117,13 +117,15 @@ public class GameOfLife {
                 }
                 System.out.println();
             }
+            //Tikrinu ar iteracijos kartojasi su praeita ar buvusia
             if (arToksPats) {
                 System.out.println("");
                 System.out.println("Mikroorganizmai susigyveno su " + (abc + 1) + " karta");
-                System.out.println("Mikroorganizmu ciklas prasidejo nuo " + cikliskumas  +
-                        " kartos");
+                //System.out.println("Mikroorganizmu ciklas prasidejo nuo " + cikliskumas  +
+                //        " kartos");
                 break;
             }
+            //Tikrinu ar iteracijos masyvo reiksmes yra gyvos(ar yra 'X' kazkur
             if (arMireVisi(field2)) {
                 System.out.println("");
                 System.out.println("Visi mikroorganizmai mire " + (abc + 1) + " kartoje");
